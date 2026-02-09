@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_891bfaf17629005c15a6efc87c86df47 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+            bottom: 50px; right: 50px; width: 220px; 
+            background-color: white; border:2px solid grey; z-index:9999; 
+            font-size:14px; padding: 10px; border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+    <h4 style="margin: 0 0 10px 0; text-align: center; border-bottom: 2px solid #333; padding-bottom: 5px;">
+        📊 가게 통계
+    </h4>
+    <table style="width: 100%; font-size: 12px;">
+        <tr><td><b>총 가게:</b></td><td style="text-align: right;">37개</td></tr>
+        <tr><td><b>총 운영자:</b></td><td style="text-align: right;">35명</td></tr>
+        <tr style="height: 5px;"><td colspan="2"></td></tr>
+<tr><td><span style="color: red;">●</span> 음식점:</td><td style="text-align: right;">16개</td></tr><tr><td><span style="color: orange;">●</span> 카페:</td><td style="text-align: right;">5개</td></tr><tr><td><span style="color: green;">●</span> 병원:</td><td style="text-align: right;">3개</td></tr><tr><td><span style="color: blue;">●</span> 학교:</td><td style="text-align: right;">1개</td></tr><tr><td><span style="color: purple;">●</span> 편의점:</td><td style="text-align: right;">1개</td></tr><tr><td><span style="color: gray;">●</span> 기타:</td><td style="text-align: right;">11개</td></tr>
+    </table>
+</div>
+    
+            <div class="folium-map" id="map_891bfaf17629005c15a6efc87c86df47" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_891bfaf17629005c15a6efc87c86df47 = L.map(
+                "map_891bfaf17629005c15a6efc87c86df47",
+                {
+                    center: [37.5665, 126.978],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_891bfaf17629005c15a6efc87c86df47);
+
+            
+
+        
+    
+            var tile_layer_746af79556e3ad66f7bad0c76577036c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_746af79556e3ad66f7bad0c76577036c.addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var feature_group_81e58b970dcfb06a3ad63c09e6994ed8 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_e7ed7ca433482dfa06c080de35d0c75e = L.marker(
+                [37.4831697953172, 126.7096038457432],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_2f2da3475457c51c410185a76f38eab8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56dba41fa94828f8c36ba3a797ce8120 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_44eca6fdd31e4b3f5af42ba4067d6e5f = $(`<div id="html_44eca6fdd31e4b3f5af42ba4067d6e5f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 피나치공 인천백운역점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">이재명</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">인천 부평구 마장로36번길 26</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">032-517-7995</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.483170, 126.709604</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1024467923" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_56dba41fa94828f8c36ba3a797ce8120.setContent(html_44eca6fdd31e4b3f5af42ba4067d6e5f);
+            
+        
+
+        marker_e7ed7ca433482dfa06c080de35d0c75e.bindPopup(popup_56dba41fa94828f8c36ba3a797ce8120)
+        ;
+
+        
+    
+    
+            marker_e7ed7ca433482dfa06c080de35d0c75e.bindTooltip(
+                `<div>
+                     피나치공 인천백운역점 (이재명)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e7ed7ca433482dfa06c080de35d0c75e.setIcon(icon_2f2da3475457c51c410185a76f38eab8);
+            
+    
+            var marker_7d14f26430b0eeb8e105ad1d6c2c2f28 = L.marker(
+                [37.56482951497214, 127.0015744388323],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_12c1781adfce352e0ae6f6d28b49747e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_492c1ad87c9889bf605e755d302769b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed5d36829e65dd1d1f09bc8c09ee8a60 = $(`<div id="html_ed5d36829e65dd1d1f09bc8c09ee8a60" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 오복밥이야기             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">치즈보리</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 중구 을지로36길 42</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-2279-5710</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.564830, 127.001574</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/15495330" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_492c1ad87c9889bf605e755d302769b2.setContent(html_ed5d36829e65dd1d1f09bc8c09ee8a60);
+            
+        
+
+        marker_7d14f26430b0eeb8e105ad1d6c2c2f28.bindPopup(popup_492c1ad87c9889bf605e755d302769b2)
+        ;
+
+        
+    
+    
+            marker_7d14f26430b0eeb8e105ad1d6c2c2f28.bindTooltip(
+                `<div>
+                     오복밥이야기 (치즈보리)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7d14f26430b0eeb8e105ad1d6c2c2f28.setIcon(icon_12c1781adfce352e0ae6f6d28b49747e);
+            
+    
+            var marker_56ce9b0312aaa93171058c0d83c42bed = L.marker(
+                [37.6392342321336, 126.917530960885],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_69bd50b4cbff27d242d4b8ff3823f991 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3624c054f8ea442fdd062036e0a496f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c765a216fbe7fd5568d7d22f0b832c3b = $(`<div id="html_c765a216fbe7fd5568d7d22f0b832c3b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 엉클와사비             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">박하정</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 은평구 통일로 1080</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">070-8834-2020</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.639234, 126.917531</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1359724550" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_3624c054f8ea442fdd062036e0a496f7.setContent(html_c765a216fbe7fd5568d7d22f0b832c3b);
+            
+        
+
+        marker_56ce9b0312aaa93171058c0d83c42bed.bindPopup(popup_3624c054f8ea442fdd062036e0a496f7)
+        ;
+
+        
+    
+    
+            marker_56ce9b0312aaa93171058c0d83c42bed.bindTooltip(
+                `<div>
+                     엉클와사비 (박하정)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_56ce9b0312aaa93171058c0d83c42bed.setIcon(icon_69bd50b4cbff27d242d4b8ff3823f991);
+            
+    
+            var marker_38992b80fdfea62b1263936b09914099 = L.marker(
+                [37.5430123467103, 126.972858747657],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_480cdc4642b32d1c5bc102915ad4bec3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5d9bc86f6d9a8f0f21ab009b41b82cf1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5c04402ea13831fc93a212c4a576feb3 = $(`<div id="html_5c04402ea13831fc93a212c4a576feb3" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 미스타교자 남영점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">전재현</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 용산구 한강대로 276-2</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">-</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.543012, 126.972859</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/157210789" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_5d9bc86f6d9a8f0f21ab009b41b82cf1.setContent(html_5c04402ea13831fc93a212c4a576feb3);
+            
+        
+
+        marker_38992b80fdfea62b1263936b09914099.bindPopup(popup_5d9bc86f6d9a8f0f21ab009b41b82cf1)
+        ;
+
+        
+    
+    
+            marker_38992b80fdfea62b1263936b09914099.bindTooltip(
+                `<div>
+                     미스타교자 남영점 (전재현)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_38992b80fdfea62b1263936b09914099.setIcon(icon_480cdc4642b32d1c5bc102915ad4bec3);
+            
+    
+            var marker_ff126faadcbfbef3418720d21e5e9373 = L.marker(
+                [37.5213424827645, 126.885746975555],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_096e3e525b62e1f3e010c97421bb9376 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_09e481db86ff2d74340434985af3aae7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f80c4d30f41158c59c542ce062218beb = $(`<div id="html_f80c4d30f41158c59c542ce062218beb" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 부엉이돈가스 문래1호점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">최효은</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 영등포구 문래북로 8</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-2677-9025</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.521342, 126.885747</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/2079708834" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_09e481db86ff2d74340434985af3aae7.setContent(html_f80c4d30f41158c59c542ce062218beb);
+            
+        
+
+        marker_ff126faadcbfbef3418720d21e5e9373.bindPopup(popup_09e481db86ff2d74340434985af3aae7)
+        ;
+
+        
+    
+    
+            marker_ff126faadcbfbef3418720d21e5e9373.bindTooltip(
+                `<div>
+                     부엉이돈가스 문래1호점 (최효은)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff126faadcbfbef3418720d21e5e9373.setIcon(icon_096e3e525b62e1f3e010c97421bb9376);
+            
+    
+            var marker_e4843dd57a75279505cd864df1a3bd77 = L.marker(
+                [35.1651840951533, 128.983523001597],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_a75f3b8fea3d782743967c57c7cd4003 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f452bc08b6ad2dc222d39172ed336582 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9f36d8c73faf635742fd512deceb8f1 = $(`<div id="html_e9f36d8c73faf635742fd512deceb8f1" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 몽벨쉘터 사상점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">한다미 (동물권자유너와)</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">부산 사상구 사상로224번길 3</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">0507-1394-5351</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">35.165184, 128.983523</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1317468595" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_f452bc08b6ad2dc222d39172ed336582.setContent(html_e9f36d8c73faf635742fd512deceb8f1);
+            
+        
+
+        marker_e4843dd57a75279505cd864df1a3bd77.bindPopup(popup_f452bc08b6ad2dc222d39172ed336582)
+        ;
+
+        
+    
+    
+            marker_e4843dd57a75279505cd864df1a3bd77.bindTooltip(
+                `<div>
+                     몽벨쉘터 사상점 (한다미 (동물권자유너와))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e4843dd57a75279505cd864df1a3bd77.setIcon(icon_a75f3b8fea3d782743967c57c7cd4003);
+            
+    
+            var marker_1c1ad3ddf97fcc657eeab21cbbd74b20 = L.marker(
+                [37.67667791737299, 126.8143118428788],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_331088c81c4cff4ac9965f0ec0c40c11 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dd59ef6354a0fce590090996bec0bb7e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3e2a9e41db35b92fb92dec4f48c20d61 = $(`<div id="html_3e2a9e41db35b92fb92dec4f48c20d61" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 BBQ 일산식사지구점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">김태호</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">경기 고양시 일산동구 위시티3로 52</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">031-966-9279</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.676678, 126.814312</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/19224328" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_dd59ef6354a0fce590090996bec0bb7e.setContent(html_3e2a9e41db35b92fb92dec4f48c20d61);
+            
+        
+
+        marker_1c1ad3ddf97fcc657eeab21cbbd74b20.bindPopup(popup_dd59ef6354a0fce590090996bec0bb7e)
+        ;
+
+        
+    
+    
+            marker_1c1ad3ddf97fcc657eeab21cbbd74b20.bindTooltip(
+                `<div>
+                     BBQ 일산식사지구점 (김태호)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1c1ad3ddf97fcc657eeab21cbbd74b20.setIcon(icon_331088c81c4cff4ac9965f0ec0c40c11);
+            
+    
+            var marker_fcd1ac86d2529eaf0ce8fc77a0aa7a20 = L.marker(
+                [37.5676960114793, 126.968934486689],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_67e990db060bc085786dbad54c9398dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d23f7abdcf6c37fd25354b2eccbebe5e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67ba37b71c364e5f5c25e968a1c0c1db = $(`<div id="html_67ba37b71c364e5f5c25e968a1c0c1db" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 얌샘김밥 정동점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">유민</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 중구 새문안로 28-1</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-738-3378</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.567696, 126.968934</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/794947698" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_d23f7abdcf6c37fd25354b2eccbebe5e.setContent(html_67ba37b71c364e5f5c25e968a1c0c1db);
+            
+        
+
+        marker_fcd1ac86d2529eaf0ce8fc77a0aa7a20.bindPopup(popup_d23f7abdcf6c37fd25354b2eccbebe5e)
+        ;
+
+        
+    
+    
+            marker_fcd1ac86d2529eaf0ce8fc77a0aa7a20.bindTooltip(
+                `<div>
+                     얌샘김밥 정동점 (유민)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fcd1ac86d2529eaf0ce8fc77a0aa7a20.setIcon(icon_67e990db060bc085786dbad54c9398dd);
+            
+    
+            var marker_7f3b392d398e63ef35eb0098f0f1e7ca = L.marker(
+                [36.3447522473171, 126.602438845979],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_33636db2ef53a6a53f05d2967ab4b3b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72a0dbe832ed750ca2dd9766513417c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_51b7b5f9b6ed4597dc7725b2bcbaf9eb = $(`<div id="html_51b7b5f9b6ed4597dc7725b2bcbaf9eb" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 한솥도시락 보령동대점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">신종환</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">충남 보령시 주공로 16</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">041-927-3469</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">36.344752, 126.602439</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/501061979" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_72a0dbe832ed750ca2dd9766513417c5.setContent(html_51b7b5f9b6ed4597dc7725b2bcbaf9eb);
+            
+        
+
+        marker_7f3b392d398e63ef35eb0098f0f1e7ca.bindPopup(popup_72a0dbe832ed750ca2dd9766513417c5)
+        ;
+
+        
+    
+    
+            marker_7f3b392d398e63ef35eb0098f0f1e7ca.bindTooltip(
+                `<div>
+                     한솥도시락 보령동대점 (신종환)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7f3b392d398e63ef35eb0098f0f1e7ca.setIcon(icon_33636db2ef53a6a53f05d2967ab4b3b3);
+            
+    
+            var marker_6db4336debeede0b2814b165f0a743ce = L.marker(
+                [36.34752724208597, 126.6049679876749],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_dd88b9ab99534b5caa1e9b7fb75ff81f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_06f3fa01bb9492ecbe22475c54fde115 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6712a37247b599e4313fbe718f0cccbb = $(`<div id="html_6712a37247b599e4313fbe718f0cccbb" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 호맥 보령동대점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">신종환</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">충남 보령시 작은오랏2길 16-4</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">-</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">36.347527, 126.604968</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1668920975" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_06f3fa01bb9492ecbe22475c54fde115.setContent(html_6712a37247b599e4313fbe718f0cccbb);
+            
+        
+
+        marker_6db4336debeede0b2814b165f0a743ce.bindPopup(popup_06f3fa01bb9492ecbe22475c54fde115)
+        ;
+
+        
+    
+    
+            marker_6db4336debeede0b2814b165f0a743ce.bindTooltip(
+                `<div>
+                     호맥 보령동대점 (신종환)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6db4336debeede0b2814b165f0a743ce.setIcon(icon_dd88b9ab99534b5caa1e9b7fb75ff81f);
+            
+    
+            var marker_0bd1489a1ac47706f6faeacc881ead06 = L.marker(
+                [37.5601078268839, 126.832082213979],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_281ead1bd2a06ec8629ce2348bcdb0b8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f56b0f742935b02554eccea053856174 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0fa7e60eb5ca4d276cc30a247005ebb5 = $(`<div id="html_0fa7e60eb5ca4d276cc30a247005ebb5" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 이자카야 우규 마곡점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">정락영</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 강서구 마곡중앙6로 42</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">010-9955-1994</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.560108, 126.832082</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1744043857" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_f56b0f742935b02554eccea053856174.setContent(html_0fa7e60eb5ca4d276cc30a247005ebb5);
+            
+        
+
+        marker_0bd1489a1ac47706f6faeacc881ead06.bindPopup(popup_f56b0f742935b02554eccea053856174)
+        ;
+
+        
+    
+    
+            marker_0bd1489a1ac47706f6faeacc881ead06.bindTooltip(
+                `<div>
+                     이자카야 우규 마곡점 (정락영)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0bd1489a1ac47706f6faeacc881ead06.setIcon(icon_281ead1bd2a06ec8629ce2348bcdb0b8);
+            
+    
+            var marker_fb83160395a32a5f11b7dfdfc4efe96d = L.marker(
+                [35.38181373914532, 129.1515762408772],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_50b0550ea405a37b9af1de1ad6db2ad0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1cbbe3c454bd429195cf3993fffcbf2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2ff436289359908c8f93a8da2c28b8af = $(`<div id="html_2ff436289359908c8f93a8da2c28b8af" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 새삼 양산본점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">lailai maradona</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">경남 양산시 평산로 30</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">055-913-9466</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">35.381814, 129.151576</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/840937279" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_b1cbbe3c454bd429195cf3993fffcbf2.setContent(html_2ff436289359908c8f93a8da2c28b8af);
+            
+        
+
+        marker_fb83160395a32a5f11b7dfdfc4efe96d.bindPopup(popup_b1cbbe3c454bd429195cf3993fffcbf2)
+        ;
+
+        
+    
+    
+            marker_fb83160395a32a5f11b7dfdfc4efe96d.bindTooltip(
+                `<div>
+                     새삼 양산본점 (lailai maradona)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fb83160395a32a5f11b7dfdfc4efe96d.setIcon(icon_50b0550ea405a37b9af1de1ad6db2ad0);
+            
+    
+            var marker_395babbd9652b5e65ce0f35334d6517d = L.marker(
+                [35.1909405608792, 126.82499713294],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_789a86a133bc9b6d1944c25d7380b27c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b4df58df4eb1fa0c8c17e4527cd4d157 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dba8e9eb28c05311cd867556d38f77b5 = $(`<div id="html_dba8e9eb28c05311cd867556d38f77b5" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 역전우동0410 광주수완점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">양승환</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">광주 광산구 장신로 135</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">062-953-0410</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">35.190941, 126.824997</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/38737162" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_b4df58df4eb1fa0c8c17e4527cd4d157.setContent(html_dba8e9eb28c05311cd867556d38f77b5);
+            
+        
+
+        marker_395babbd9652b5e65ce0f35334d6517d.bindPopup(popup_b4df58df4eb1fa0c8c17e4527cd4d157)
+        ;
+
+        
+    
+    
+            marker_395babbd9652b5e65ce0f35334d6517d.bindTooltip(
+                `<div>
+                     역전우동0410 광주수완점 (양승환)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_395babbd9652b5e65ce0f35334d6517d.setIcon(icon_789a86a133bc9b6d1944c25d7380b27c);
+            
+    
+            var marker_b8de42dc23d836271b1e06e06c79ecb3 = L.marker(
+                [37.56889277700206, 127.0075273809896],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_6fc1254e0416ee0084d4b714deb0b0d9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bc239fd669de85a0f38fcbbc47b8ad94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f2c50e8c4889f3a268093d7f8053516 = $(`<div id="html_9f2c50e8c4889f3a268093d7f8053516" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 아웃백스테이크하우스 동대문점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">이재춘</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 중구 장충단로13길 20</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-2283-2902</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.568893, 127.007527</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/27598069" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_bc239fd669de85a0f38fcbbc47b8ad94.setContent(html_9f2c50e8c4889f3a268093d7f8053516);
+            
+        
+
+        marker_b8de42dc23d836271b1e06e06c79ecb3.bindPopup(popup_bc239fd669de85a0f38fcbbc47b8ad94)
+        ;
+
+        
+    
+    
+            marker_b8de42dc23d836271b1e06e06c79ecb3.bindTooltip(
+                `<div>
+                     아웃백스테이크하우스 동대문점 (이재춘)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b8de42dc23d836271b1e06e06c79ecb3.setIcon(icon_6fc1254e0416ee0084d4b714deb0b0d9);
+            
+    
+            var marker_70af6845f199311ce2c98f7309ee7808 = L.marker(
+                [37.53976366408025, 126.9433075018638],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_9c4b6da645c2544a4b2ce3cc4b0e6d72 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a150607f478db77a48b9a56c6c08da98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a5317476d25299dd2b409f59c2990e79 = $(`<div id="html_a5317476d25299dd2b409f59c2990e79" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 목우촌한우명가             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">김은수</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 마포구 토정로 312-1</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-717-8110</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.539764, 126.943308</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/9352580" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_a150607f478db77a48b9a56c6c08da98.setContent(html_a5317476d25299dd2b409f59c2990e79);
+            
+        
+
+        marker_70af6845f199311ce2c98f7309ee7808.bindPopup(popup_a150607f478db77a48b9a56c6c08da98)
+        ;
+
+        
+    
+    
+            marker_70af6845f199311ce2c98f7309ee7808.bindTooltip(
+                `<div>
+                     목우촌한우명가 (김은수)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_70af6845f199311ce2c98f7309ee7808.setIcon(icon_9c4b6da645c2544a4b2ce3cc4b0e6d72);
+            
+    
+            var marker_e37d1dd9ec1a666bd9721cf57063b7ae = L.marker(
+                [37.25218749861925, 127.0125511683479],
+                {
+}
+            ).addTo(feature_group_81e58b970dcfb06a3ad63c09e6994ed8);
+        
+    
+            var icon_443396355ee2de57c30d1c7ba86a1f44 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3343a69fca1da30a10def4da342d2579 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5626439e415728f2bebe012cc49c22b9 = $(`<div id="html_5626439e415728f2bebe012cc49c22b9" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid red; padding-bottom: 5px;">                 🏪 수원왕갈비통닭 세류2호점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">김윤섭</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">음식점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">경기 수원시 권선구 정조로482번길 20</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">070-4647-3119</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.252187, 127.012551</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/709987110" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_3343a69fca1da30a10def4da342d2579.setContent(html_5626439e415728f2bebe012cc49c22b9);
+            
+        
+
+        marker_e37d1dd9ec1a666bd9721cf57063b7ae.bindPopup(popup_3343a69fca1da30a10def4da342d2579)
+        ;
+
+        
+    
+    
+            marker_e37d1dd9ec1a666bd9721cf57063b7ae.bindTooltip(
+                `<div>
+                     수원왕갈비통닭 세류2호점 (김윤섭)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e37d1dd9ec1a666bd9721cf57063b7ae.setIcon(icon_443396355ee2de57c30d1c7ba86a1f44);
+            
+    
+            feature_group_81e58b970dcfb06a3ad63c09e6994ed8.addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var feature_group_7e8b5972979b2fec23cf57147919d914 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_d434ad3eedd7126726c5ac33f17859ec = L.marker(
+                [37.51341773812068, 127.0597955267618],
+                {
+}
+            ).addTo(feature_group_7e8b5972979b2fec23cf57147919d914);
+        
+    
+            var icon_0d139d3a50b18992437840492edfe249 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c75b5af19780d386d5ab3256b3068bef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a4405e1f572f3f194a73533d665c833a = $(`<div id="html_a4405e1f572f3f194a73533d665c833a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid orange; padding-bottom: 5px;">                 🏪 에덴스벨리 스타필드 코엑스몰점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">에덴스벨리</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">카페</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 강남구 삼성동 159</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-6002-3382</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.513418, 127.059796</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/389211145" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_c75b5af19780d386d5ab3256b3068bef.setContent(html_a4405e1f572f3f194a73533d665c833a);
+            
+        
+
+        marker_d434ad3eedd7126726c5ac33f17859ec.bindPopup(popup_c75b5af19780d386d5ab3256b3068bef)
+        ;
+
+        
+    
+    
+            marker_d434ad3eedd7126726c5ac33f17859ec.bindTooltip(
+                `<div>
+                     에덴스벨리 스타필드 코엑스몰점 (에덴스벨리)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d434ad3eedd7126726c5ac33f17859ec.setIcon(icon_0d139d3a50b18992437840492edfe249);
+            
+    
+            var marker_79e106719d86b2d872b79c3e311819c2 = L.marker(
+                [37.2217238147074, 127.0505484067584],
+                {
+}
+            ).addTo(feature_group_7e8b5972979b2fec23cf57147919d914);
+        
+    
+            var icon_0ce9f6ab7fa5d01e08023e8911348615 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6955626ddcab2b7f9a481dd1b58b90ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2992b36bf27415f29cd3cac2388ee728 = $(`<div id="html_2992b36bf27415f29cd3cac2388ee728" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid orange; padding-bottom: 5px;">                 🏪 메가MGC커피 화성기산점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">김정용</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">카페</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">경기 화성시 동탄지성로 315</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">031-225-0525</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.221724, 127.050548</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1177622343" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_6955626ddcab2b7f9a481dd1b58b90ff.setContent(html_2992b36bf27415f29cd3cac2388ee728);
+            
+        
+
+        marker_79e106719d86b2d872b79c3e311819c2.bindPopup(popup_6955626ddcab2b7f9a481dd1b58b90ff)
+        ;
+
+        
+    
+    
+            marker_79e106719d86b2d872b79c3e311819c2.bindTooltip(
+                `<div>
+                     메가MGC커피 화성기산점 (김정용)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_79e106719d86b2d872b79c3e311819c2.setIcon(icon_0ce9f6ab7fa5d01e08023e8911348615);
+            
+    
+            var marker_715c4ec91d008fc1b1f90073ee6de857 = L.marker(
+                [36.3466323464179, 126.604414403361],
+                {
+}
+            ).addTo(feature_group_7e8b5972979b2fec23cf57147919d914);
+        
+    
+            var icon_de9d8c77008a110490528ae8090e43ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9fb1f4e6016f193fbb361db3c968008a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d7f572a9827748cf74059b959f1df08 = $(`<div id="html_3d7f572a9827748cf74059b959f1df08" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid orange; padding-bottom: 5px;">                 🏪 정글비 보령점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">신종환</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">카페</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">충남 보령시 작은오랏2길 35</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">041-934-1775</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">36.346632, 126.604414</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1864172928" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_9fb1f4e6016f193fbb361db3c968008a.setContent(html_3d7f572a9827748cf74059b959f1df08);
+            
+        
+
+        marker_715c4ec91d008fc1b1f90073ee6de857.bindPopup(popup_9fb1f4e6016f193fbb361db3c968008a)
+        ;
+
+        
+    
+    
+            marker_715c4ec91d008fc1b1f90073ee6de857.bindTooltip(
+                `<div>
+                     정글비 보령점 (신종환)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_715c4ec91d008fc1b1f90073ee6de857.setIcon(icon_de9d8c77008a110490528ae8090e43ec);
+            
+    
+            var marker_e5e08cce68a8a2096f54cac6314f2550 = L.marker(
+                [37.45236327276652, 127.1606243223958],
+                {
+}
+            ).addTo(feature_group_7e8b5972979b2fec23cf57147919d914);
+        
+    
+            var icon_945271e86f888cd3ca1b9d7e20b3615a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_616f2d0a14091fefbe301be3c1c4edf5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4889651e8afcf581bc552f1d5d41a10e = $(`<div id="html_4889651e8afcf581bc552f1d5d41a10e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid orange; padding-bottom: 5px;">                 🏪 컴포즈커피 성남법원점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">법원점주</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">카페</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">경기 성남시 중원구 산성대로 456-1</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">070-7626-5244</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.452363, 127.160624</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/351627626" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_616f2d0a14091fefbe301be3c1c4edf5.setContent(html_4889651e8afcf581bc552f1d5d41a10e);
+            
+        
+
+        marker_e5e08cce68a8a2096f54cac6314f2550.bindPopup(popup_616f2d0a14091fefbe301be3c1c4edf5)
+        ;
+
+        
+    
+    
+            marker_e5e08cce68a8a2096f54cac6314f2550.bindTooltip(
+                `<div>
+                     컴포즈커피 성남법원점 (법원점주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e5e08cce68a8a2096f54cac6314f2550.setIcon(icon_945271e86f888cd3ca1b9d7e20b3615a);
+            
+    
+            var marker_8da62c5539d49b8b54cd65bd52288d7c = L.marker(
+                [35.3114007696331, 129.026294965557],
+                {
+}
+            ).addTo(feature_group_7e8b5972979b2fec23cf57147919d914);
+        
+    
+            var icon_8da7879f316ecf61435108866d43a055 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_992415c99d4d00b93f438fd963bf2a20 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96220551e4f36ad3fc15e32aab6aff9d = $(`<div id="html_96220551e4f36ad3fc15e32aab6aff9d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid orange; padding-bottom: 5px;">                 🏪 청카페             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">청카페</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">카페</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">경남 양산시 동면 금오4길 13-42</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">070-7378-3331</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">35.311401, 129.026295</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1042618532" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_992415c99d4d00b93f438fd963bf2a20.setContent(html_96220551e4f36ad3fc15e32aab6aff9d);
+            
+        
+
+        marker_8da62c5539d49b8b54cd65bd52288d7c.bindPopup(popup_992415c99d4d00b93f438fd963bf2a20)
+        ;
+
+        
+    
+    
+            marker_8da62c5539d49b8b54cd65bd52288d7c.bindTooltip(
+                `<div>
+                     청카페 (청카페)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8da62c5539d49b8b54cd65bd52288d7c.setIcon(icon_8da7879f316ecf61435108866d43a055);
+            
+    
+            feature_group_7e8b5972979b2fec23cf57147919d914.addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var feature_group_4e54c822b38388307a2770bef17c1600 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_f3f3b4e651da0ff3b3178acf25327b4f = L.marker(
+                [37.41122397333322, 126.9798565514989],
+                {
+}
+            ).addTo(feature_group_4e54c822b38388307a2770bef17c1600);
+        
+    
+            var icon_21f7d408c626beef238aa182d9db4e30 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_78f7770c1a1a04b48a62bb592ac2b403 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c9f55bc901ea74968ac9985383bf401e = $(`<div id="html_c9f55bc901ea74968ac9985383bf401e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid green; padding-bottom: 5px;">                 🏪 진심드림내과의원             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">위멘토</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">병원</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">경기 과천시 과천대로5길 6</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-2038-7722</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.411224, 126.979857</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/372541900" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_78f7770c1a1a04b48a62bb592ac2b403.setContent(html_c9f55bc901ea74968ac9985383bf401e);
+            
+        
+
+        marker_f3f3b4e651da0ff3b3178acf25327b4f.bindPopup(popup_78f7770c1a1a04b48a62bb592ac2b403)
+        ;
+
+        
+    
+    
+            marker_f3f3b4e651da0ff3b3178acf25327b4f.bindTooltip(
+                `<div>
+                     진심드림내과의원 (위멘토)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f3f3b4e651da0ff3b3178acf25327b4f.setIcon(icon_21f7d408c626beef238aa182d9db4e30);
+            
+    
+            var marker_ff921f9937079e4054fef6095c7b8ff7 = L.marker(
+                [35.87095652564776, 127.0768793321963],
+                {
+}
+            ).addTo(feature_group_4e54c822b38388307a2770bef17c1600);
+        
+    
+            var icon_8d48ef2dcb7116751dbc5293ff4ef5af = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_697da04e05ce73c11c3a3b41057391b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86f282d13b6733ab8af500b7dacd4ed1 = $(`<div id="html_86f282d13b6733ab8af500b7dacd4ed1" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid green; padding-bottom: 5px;">                 🏪 하얀치과의원             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">김호담</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">병원</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">전북특별자치도 전주시 덕진구 편운로 6</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">063-213-2875</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">35.870957, 127.076879</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/11283313" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_697da04e05ce73c11c3a3b41057391b3.setContent(html_86f282d13b6733ab8af500b7dacd4ed1);
+            
+        
+
+        marker_ff921f9937079e4054fef6095c7b8ff7.bindPopup(popup_697da04e05ce73c11c3a3b41057391b3)
+        ;
+
+        
+    
+    
+            marker_ff921f9937079e4054fef6095c7b8ff7.bindTooltip(
+                `<div>
+                     하얀치과의원 (김호담)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff921f9937079e4054fef6095c7b8ff7.setIcon(icon_8d48ef2dcb7116751dbc5293ff4ef5af);
+            
+    
+            var marker_c6313bd9a632fbc19772a0c1f92670a0 = L.marker(
+                [37.5478060054984, 126.941504402311],
+                {
+}
+            ).addTo(feature_group_4e54c822b38388307a2770bef17c1600);
+        
+    
+            var icon_13511d41c7333971aa1d51d93e85c8df = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_14696a09eecef92a84af74c7be17c053 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_582517632c4271fa4a069ebb50bb2fe7 = $(`<div id="html_582517632c4271fa4a069ebb50bb2fe7" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid green; padding-bottom: 5px;">                 🏪 그린서울치과의원             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">권민지</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">병원</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 마포구 백범로 90</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-719-2879</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.547806, 126.941504</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/8808396" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_14696a09eecef92a84af74c7be17c053.setContent(html_582517632c4271fa4a069ebb50bb2fe7);
+            
+        
+
+        marker_c6313bd9a632fbc19772a0c1f92670a0.bindPopup(popup_14696a09eecef92a84af74c7be17c053)
+        ;
+
+        
+    
+    
+            marker_c6313bd9a632fbc19772a0c1f92670a0.bindTooltip(
+                `<div>
+                     그린서울치과의원 (권민지)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c6313bd9a632fbc19772a0c1f92670a0.setIcon(icon_13511d41c7333971aa1d51d93e85c8df);
+            
+    
+            feature_group_4e54c822b38388307a2770bef17c1600.addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var feature_group_b80e6305dd201533d84eeb188e1cb094 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_6ebd303f84d6e4f8cca286a2c1c1e8a2 = L.marker(
+                [37.56433710667622, 126.9389357212455],
+                {
+}
+            ).addTo(feature_group_b80e6305dd201533d84eeb188e1cb094);
+        
+    
+            var icon_8e1d30ae9368cf7dc0aac95f333ff4a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_49b0607565c94ea2cb3d11eccf1a7ac2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2dd7673f6a234ea1a25c27174b4d5512 = $(`<div id="html_2dd7673f6a234ea1a25c27174b4d5512" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid blue; padding-bottom: 5px;">                 🏪 연세대학교 신촌캠퍼스             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">김승민</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">학교</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 서대문구 연세로 50</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">1599-1885</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.564337, 126.938936</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/7813437" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_49b0607565c94ea2cb3d11eccf1a7ac2.setContent(html_2dd7673f6a234ea1a25c27174b4d5512);
+            
+        
+
+        marker_6ebd303f84d6e4f8cca286a2c1c1e8a2.bindPopup(popup_49b0607565c94ea2cb3d11eccf1a7ac2)
+        ;
+
+        
+    
+    
+            marker_6ebd303f84d6e4f8cca286a2c1c1e8a2.bindTooltip(
+                `<div>
+                     연세대학교 신촌캠퍼스 (김승민)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6ebd303f84d6e4f8cca286a2c1c1e8a2.setIcon(icon_8e1d30ae9368cf7dc0aac95f333ff4a3);
+            
+    
+            feature_group_b80e6305dd201533d84eeb188e1cb094.addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var feature_group_52527c52a45b0f3dea013c94fe2c851f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_8ae4479bfbbbdfd0c7cbbb8a435388cd = L.marker(
+                [37.55896409827817, 126.9417786271813],
+                {
+}
+            ).addTo(feature_group_52527c52a45b0f3dea013c94fe2c851f);
+        
+    
+            var icon_3d731851a5a925a8e4e8f48f9c376488 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87baec3528c53db9469a355afec223cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8f6d36e996ae97bc807947c5ff0c80c3 = $(`<div id="html_8f6d36e996ae97bc807947c5ff0c80c3" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid purple; padding-bottom: 5px;">                 🏪 CU 신촌기차역점             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">sonamoo소나무</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">편의점</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 서대문구 신촌역로 33</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-313-5428</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.558964, 126.941779</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1825743476" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_87baec3528c53db9469a355afec223cc.setContent(html_8f6d36e996ae97bc807947c5ff0c80c3);
+            
+        
+
+        marker_8ae4479bfbbbdfd0c7cbbb8a435388cd.bindPopup(popup_87baec3528c53db9469a355afec223cc)
+        ;
+
+        
+    
+    
+            marker_8ae4479bfbbbdfd0c7cbbb8a435388cd.bindTooltip(
+                `<div>
+                     CU 신촌기차역점 (sonamoo소나무)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8ae4479bfbbbdfd0c7cbbb8a435388cd.setIcon(icon_3d731851a5a925a8e4e8f48f9c376488);
+            
+    
+            feature_group_52527c52a45b0f3dea013c94fe2c851f.addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var feature_group_bc47d1a013cc4ad80f5de15b91f19ed0 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_b68e1c3ef2e35d2f2c74c144d0d019b0 = L.marker(
+                [37.57153698547285, 127.0494673937132],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_abb02564f6eb9db2a8e9c7efb6079f70 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c9dbc2bdea30f389c42311d554a6370 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ab03692c7c6acb79cf757611a187a79 = $(`<div id="html_0ab03692c7c6acb79cf757611a187a79" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 내일리버파크             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">사장1</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 동대문구 답십리로40길 59</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">-</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.571537, 127.049467</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1087996704" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_8c9dbc2bdea30f389c42311d554a6370.setContent(html_0ab03692c7c6acb79cf757611a187a79);
+            
+        
+
+        marker_b68e1c3ef2e35d2f2c74c144d0d019b0.bindPopup(popup_8c9dbc2bdea30f389c42311d554a6370)
+        ;
+
+        
+    
+    
+            marker_b68e1c3ef2e35d2f2c74c144d0d019b0.bindTooltip(
+                `<div>
+                     내일리버파크 (사장1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b68e1c3ef2e35d2f2c74c144d0d019b0.setIcon(icon_abb02564f6eb9db2a8e9c7efb6079f70);
+            
+    
+            var marker_0e14cbf44139c91a2f0cdaa9401e25a9 = L.marker(
+                [37.5650644149926, 126.946806213559],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_2e0d68047b1365c0f78bd7a08eb7d66a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9bece6765070bcb0e745b38f1be6ba61 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7bcb45e86439a7bd438dd1256e2852d = $(`<div id="html_a7bcb45e86439a7bd438dd1256e2852d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 이화여자대학교 교육관             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">망고팩토리</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 서대문구 이화여대길 52</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">-</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.565064, 126.946806</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/17561255" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_9bece6765070bcb0e745b38f1be6ba61.setContent(html_a7bcb45e86439a7bd438dd1256e2852d);
+            
+        
+
+        marker_0e14cbf44139c91a2f0cdaa9401e25a9.bindPopup(popup_9bece6765070bcb0e745b38f1be6ba61)
+        ;
+
+        
+    
+    
+            marker_0e14cbf44139c91a2f0cdaa9401e25a9.bindTooltip(
+                `<div>
+                     이화여자대학교 교육관 (망고팩토리)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0e14cbf44139c91a2f0cdaa9401e25a9.setIcon(icon_2e0d68047b1365c0f78bd7a08eb7d66a);
+            
+    
+            var marker_2e4c2cc01b9410e573a999564e4c7936 = L.marker(
+                [37.5580729831095, 126.939922080807],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_562f4b045a6b5a9733cf525d226195a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cf3f2fbb857e2553c087778ea4ed5198 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c49023931a97541433a75fa8ed168117 = $(`<div id="html_c49023931a97541433a75fa8ed168117" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 글림스인사이트             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">이창민</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 서대문구 연세로2나길 61</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">-</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.558073, 126.939922</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/342958507" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_cf3f2fbb857e2553c087778ea4ed5198.setContent(html_c49023931a97541433a75fa8ed168117);
+            
+        
+
+        marker_2e4c2cc01b9410e573a999564e4c7936.bindPopup(popup_cf3f2fbb857e2553c087778ea4ed5198)
+        ;
+
+        
+    
+    
+            marker_2e4c2cc01b9410e573a999564e4c7936.bindTooltip(
+                `<div>
+                     글림스인사이트 (이창민)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e4c2cc01b9410e573a999564e4c7936.setIcon(icon_562f4b045a6b5a9733cf525d226195a4);
+            
+    
+            var marker_ab1741d39e34e3230c43b79206f924e4 = L.marker(
+                [37.55536014160983, 126.9286963447998],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_338f6d0cf19ff322d08ed94c0e36801f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6da0aed1e4c1fa643b8c71e0edb33985 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_876fc668080f72d5255fe10e405f9fad = $(`<div id="html_876fc668080f72d5255fe10e405f9fad" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 가볼래빌딩             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">김깨알</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 마포구 와우산로29길 26-8</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">01000000000</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.555360, 126.928696</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/792635526" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_6da0aed1e4c1fa643b8c71e0edb33985.setContent(html_876fc668080f72d5255fe10e405f9fad);
+            
+        
+
+        marker_ab1741d39e34e3230c43b79206f924e4.bindPopup(popup_6da0aed1e4c1fa643b8c71e0edb33985)
+        ;
+
+        
+    
+    
+            marker_ab1741d39e34e3230c43b79206f924e4.bindTooltip(
+                `<div>
+                     가볼래빌딩 (김깨알)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab1741d39e34e3230c43b79206f924e4.setIcon(icon_338f6d0cf19ff322d08ed94c0e36801f);
+            
+    
+            var marker_e52c2b7c9bc3a00199556845ab90f479 = L.marker(
+                [37.4711399672939, 126.699321402776],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_1e579334524ada6136812b18202c1a23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_966b9abdfa85925b63d2352f15f361e8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a70bc83d2c8b4953070014c14d620e0d = $(`<div id="html_a70bc83d2c8b4953070014c14d620e0d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 드림설비공사             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">한예원</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">인천 부평구 배곶로20번길 22</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">01042587379</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.471140, 126.699321</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/167333685" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_966b9abdfa85925b63d2352f15f361e8.setContent(html_a70bc83d2c8b4953070014c14d620e0d);
+            
+        
+
+        marker_e52c2b7c9bc3a00199556845ab90f479.bindPopup(popup_966b9abdfa85925b63d2352f15f361e8)
+        ;
+
+        
+    
+    
+            marker_e52c2b7c9bc3a00199556845ab90f479.bindTooltip(
+                `<div>
+                     드림설비공사 (한예원)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e52c2b7c9bc3a00199556845ab90f479.setIcon(icon_1e579334524ada6136812b18202c1a23);
+            
+    
+            var marker_dfbe0348385707f510f1a359fae42792 = L.marker(
+                [37.5630458723246, 126.85222363561],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_bda257d59c1f96b032ef1ddbafb24ed1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d9dcd18b4f18e6885ff66bc6f81ef1c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8da6616649e475e947d965f4366a4ccb = $(`<div id="html_8da6616649e475e947d965f4366a4ccb" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 원더폴댄스&원더풀요가             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">영주</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 강서구 양천로 461</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">0502-5552-0979</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.563046, 126.852224</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/1582735553" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_0d9dcd18b4f18e6885ff66bc6f81ef1c.setContent(html_8da6616649e475e947d965f4366a4ccb);
+            
+        
+
+        marker_dfbe0348385707f510f1a359fae42792.bindPopup(popup_0d9dcd18b4f18e6885ff66bc6f81ef1c)
+        ;
+
+        
+    
+    
+            marker_dfbe0348385707f510f1a359fae42792.bindTooltip(
+                `<div>
+                     원더폴댄스&원더풀요가 (영주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dfbe0348385707f510f1a359fae42792.setIcon(icon_bda257d59c1f96b032ef1ddbafb24ed1);
+            
+    
+            var marker_8090aee3c17d122b7d403bccca298430 = L.marker(
+                [37.51775252083544, 126.9127838658778],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_e8f9c4af5bec9db5a302456eb507879f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_59a4245f40b737d7452e46a78c72fd40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b627e65e0658b628dbf12325e2c7ec5 = $(`<div id="html_7b627e65e0658b628dbf12325e2c7ec5" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 여의도더리브스타일             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">양현승</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 영등포구 경인로 900</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">-</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.517753, 126.912784</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/189942803" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_59a4245f40b737d7452e46a78c72fd40.setContent(html_7b627e65e0658b628dbf12325e2c7ec5);
+            
+        
+
+        marker_8090aee3c17d122b7d403bccca298430.bindPopup(popup_59a4245f40b737d7452e46a78c72fd40)
+        ;
+
+        
+    
+    
+            marker_8090aee3c17d122b7d403bccca298430.bindTooltip(
+                `<div>
+                     여의도더리브스타일 (양현승)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8090aee3c17d122b7d403bccca298430.setIcon(icon_e8f9c4af5bec9db5a302456eb507879f);
+            
+    
+            var marker_776ceb08fed3a926433dd0b5cfb2d754 = L.marker(
+                [35.82468241172467, 128.5460462606737],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_cf8ed725d48ff3461745612b0622b9b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa3cdaed55628a3327c35ebb9dff71ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cceffb2c6b7d1fb4e5302329bbc74b09 = $(`<div id="html_cceffb2c6b7d1fb4e5302329bbc74b09" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 신화헬스앤드의료기             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">박성수</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">대구 달서구 월배로 325</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">053-654-9352</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">35.824682, 128.546046</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/9857603" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_fa3cdaed55628a3327c35ebb9dff71ca.setContent(html_cceffb2c6b7d1fb4e5302329bbc74b09);
+            
+        
+
+        marker_776ceb08fed3a926433dd0b5cfb2d754.bindPopup(popup_fa3cdaed55628a3327c35ebb9dff71ca)
+        ;
+
+        
+    
+    
+            marker_776ceb08fed3a926433dd0b5cfb2d754.bindTooltip(
+                `<div>
+                     신화헬스앤드의료기 (박성수)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_776ceb08fed3a926433dd0b5cfb2d754.setIcon(icon_cf8ed725d48ff3461745612b0622b9b9);
+            
+    
+            var marker_f5e3214f2665af9f7a73269fe1bcd8f2 = L.marker(
+                [37.5704208594994, 127.0076180915827],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_34dbb22bbf0d3fb5ef1ff20216596959 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6cd9e4acbb0b4f17f84229d2b8065f3d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_224381aeb6953e64689eb9633483456b = $(`<div id="html_224381aeb6953e64689eb9633483456b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 동대문종합시장             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">최솔잎</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 종로구 종로 266</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">02-2262-0114</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.570421, 127.007618</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/8272010" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_6cd9e4acbb0b4f17f84229d2b8065f3d.setContent(html_224381aeb6953e64689eb9633483456b);
+            
+        
+
+        marker_f5e3214f2665af9f7a73269fe1bcd8f2.bindPopup(popup_6cd9e4acbb0b4f17f84229d2b8065f3d)
+        ;
+
+        
+    
+    
+            marker_f5e3214f2665af9f7a73269fe1bcd8f2.bindTooltip(
+                `<div>
+                     동대문종합시장 (최솔잎)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f5e3214f2665af9f7a73269fe1bcd8f2.setIcon(icon_34dbb22bbf0d3fb5ef1ff20216596959);
+            
+    
+            var marker_c534f9346dfb79e3c0faf42d06af3cc2 = L.marker(
+                [37.50370141317319, 127.0476696271183],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_c09a08a35535322193a83a752148e660 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc9627e31f886e62e32b340b796777f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a120e2fa5b94b5095f9968657ea549ce = $(`<div id="html_a120e2fa5b94b5095f9968657ea549ce" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 유니시티코리아 서울본사             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">세리</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 강남구 테헤란로 328</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">1577-8269</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.503701, 127.047670</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/14920504" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_dc9627e31f886e62e32b340b796777f9.setContent(html_a120e2fa5b94b5095f9968657ea549ce);
+            
+        
+
+        marker_c534f9346dfb79e3c0faf42d06af3cc2.bindPopup(popup_dc9627e31f886e62e32b340b796777f9)
+        ;
+
+        
+    
+    
+            marker_c534f9346dfb79e3c0faf42d06af3cc2.bindTooltip(
+                `<div>
+                     유니시티코리아 서울본사 (세리)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c534f9346dfb79e3c0faf42d06af3cc2.setIcon(icon_c09a08a35535322193a83a752148e660);
+            
+    
+            var marker_5d2f8540b62013c3d57da9f4ff863612 = L.marker(
+                [37.4997911586208, 127.059359443278],
+                {
+}
+            ).addTo(feature_group_bc47d1a013cc4ad80f5de15b91f19ed0);
+        
+    
+            var icon_c406de0430cf828d069b634ee988984e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "store",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db0ff834c1f5255bbe2296849eb79f3d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9225caef5ac05eb159001201529d0be1 = $(`<div id="html_9225caef5ac05eb159001201529d0be1" style="width: 100.0%; height: 100.0%;">         <div style="font-family: 'Malgun Gothic', sans-serif; width: 280px;">             <h4 style="margin: 0 0 10px 0; color: #333; border-bottom: 2px solid gray; padding-bottom: 5px;">                 🏪 띵커스             </h4>             <table style="width: 100%; font-size: 13px; border-collapse: collapse;">                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold; width: 80px;">운영자</td>                     <td style="padding: 5px;">나다</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">카테고리</td>                     <td style="padding: 5px;">기타</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">주소</td>                     <td style="padding: 5px;">서울 강남구 삼성로63길 9</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">전화번호</td>                     <td style="padding: 5px;">-</td>                 </tr>                 <tr style="background-color: #f8f9fa;">                     <td style="padding: 5px; font-weight: bold;">운영상태</td>                     <td style="padding: 5px;">운영중</td>                 </tr>                 <tr>                     <td style="padding: 5px; font-weight: bold;">좌표</td>                     <td style="padding: 5px;">37.499791, 127.059359</td>                 </tr>             </table>             <div style="margin-top: 10px; text-align: center;">                 <a href="http://place.map.kakao.com/376754687" target="_blank"                     style="display: inline-block; padding: 8px 15px; background-color: #FEE500;                            color: #000; text-decoration: none; border-radius: 5px; font-weight: bold;">                     🗺️ 카카오맵에서 보기                 </a>             </div>         </div>         </div>`)[0];
+                popup_db0ff834c1f5255bbe2296849eb79f3d.setContent(html_9225caef5ac05eb159001201529d0be1);
+            
+        
+
+        marker_5d2f8540b62013c3d57da9f4ff863612.bindPopup(popup_db0ff834c1f5255bbe2296849eb79f3d)
+        ;
+
+        
+    
+    
+            marker_5d2f8540b62013c3d57da9f4ff863612.bindTooltip(
+                `<div>
+                     띵커스 (나다)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5d2f8540b62013c3d57da9f4ff863612.setIcon(icon_c406de0430cf828d069b634ee988984e);
+            
+    
+            feature_group_bc47d1a013cc4ad80f5de15b91f19ed0.addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var layer_control_86e3abd25d0a54b023a9f1dff21fd466_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_746af79556e3ad66f7bad0c76577036c,
+                },
+                overlays :  {
+                    "\uc74c\uc2dd\uc810 (16\uac1c)" : feature_group_81e58b970dcfb06a3ad63c09e6994ed8,
+                    "\uce74\ud398 (5\uac1c)" : feature_group_7e8b5972979b2fec23cf57147919d914,
+                    "\ubcd1\uc6d0 (3\uac1c)" : feature_group_4e54c822b38388307a2770bef17c1600,
+                    "\ud559\uad50 (1\uac1c)" : feature_group_b80e6305dd201533d84eeb188e1cb094,
+                    "\ud3b8\uc758\uc810 (1\uac1c)" : feature_group_52527c52a45b0f3dea013c94fe2c851f,
+                    "\uae30\ud0c0 (11\uac1c)" : feature_group_bc47d1a013cc4ad80f5de15b91f19ed0,
+                },
+            };
+            let layer_control_86e3abd25d0a54b023a9f1dff21fd466 = L.control.layers(
+                layer_control_86e3abd25d0a54b023a9f1dff21fd466_layers.base_layers,
+                layer_control_86e3abd25d0a54b023a9f1dff21fd466_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_891bfaf17629005c15a6efc87c86df47);
+
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "\uc804\uccb4\ud654\uba74",
+  "titleCancel": "\uc804\uccb4\ud654\uba74 \uc885\ub8cc",
+  "forceSeparateButton": true,
+}
+            ).addTo(map_891bfaf17629005c15a6efc87c86df47);
+        
+    
+            var locate_control_93aeb58235ff5e7ee576f26c011fd9b3 = L.control.locate(
+                {}
+            ).addTo(map_891bfaf17629005c15a6efc87c86df47);
+            
+        
+    
+            var tile_layer_8d80249bd60a8f650abd7001ecd0aade = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_36eb83a8423d1483f77e01f2ba63567e = new L.Control.MiniMap(
+                tile_layer_8d80249bd60a8f650abd7001ecd0aade,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_891bfaf17629005c15a6efc87c86df47.addControl(mini_map_36eb83a8423d1483f77e01f2ba63567e);
+        
+</script>
+</html>
